@@ -19,7 +19,7 @@ services:
         puppix: 'Puppix Api'
     command: ["bundle", "exec", "rails", "server", "-b", "0.0.0.0", "-P", "/tmp/server.pid"]
     volumes:
-      - .bundle:/usr/local/bundle
+      - gem_cache:/usr/local/bundle
       - .:/opt/puppix_api
     networks:
       - frontend
