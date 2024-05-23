@@ -4,8 +4,8 @@ ENV BUNDLE_PATH="/usr/local/bundle" \
     APP_PATH="/opt/puppix_api" \
     EDITOR="vim"
 
-ARG USER_ID=0
-ARG GROUP_ID=0
+ARG USER_ID=1000
+ARG GROUP_ID=1000
 
 RUN addgroup --gid $GROUP_ID docker && \
     adduser --gid $GROUP_ID --uid $USER_ID --gecos '' --disabled-password docker
