@@ -1,0 +1,39 @@
+version: "3.9"
+services:
+  pg:
+    image: postgres:15.2-bullseye
+    environment:
+      POSTGRES_USER: docker
+      POSTGRES_PASSWORD: docker123
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    networks:
+      - backend
+  puppix:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      labels:
+        puppix: 'Puppix Api'
+    command: ["bundle", "exec", "rails", "server", "-b", "0.0.0.0", "-P", "/tmp/server.pid"]
+    volumes:
+      - gem_cache:/usr/local/bundle
+      - .:/opt/puppix_api
+    networks:
+      - frontend
+      - backend
+    ports:
+      - "3000:3000"
+    env_file: .env
+    depends_on:
+      - pg
+    tty: true
+    stdin_open: true
+volumes:
+  pg_data:
+  gem_cache:
+networks:
+  frontend:
+  backend:

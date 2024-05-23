@@ -14,7 +14,7 @@ services:
   puppix:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
       labels:
         puppix: 'Puppix Api'
     command: ["bundle", "exec", "rails", "server", "-b", "0.0.0.0", "-P", "/tmp/server.pid"]
