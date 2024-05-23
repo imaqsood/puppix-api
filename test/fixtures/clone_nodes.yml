@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  machine_ip: MyString
+  database_user: MyString
+  database_password: MyString
+  new_machine_ip: MyString
+  status: MyString
+
+two:
+  machine_ip: MyString
+  database_user: MyString
+  database_password: MyString
+  new_machine_ip: MyString
+  status: MyString
